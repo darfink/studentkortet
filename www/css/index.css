@@ -1,0 +1,133 @@
+/* Utility classes */
+.left { float: left; }
+.right { float: right; }
+.hidden { display: none; }
+.nowrap { white-space: nowrap; }
+.rotate { transform: rotate(90deg); }
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Generic styles */
+a { color: #fff !important; }
+h3 { font-size: 1.3em; font-weight: 400; font-family: HelveticaNeue-Medium; }
+img { max-width: 100%; }
+* { -webkit-tap-highlight-color: rgba(0,0,0,0); box-sizing: border-box; }
+
+/* Fonts */
+@font-face { font-family: 'Rockwell'; font-weight: 400; src: url('../fonts/RockwellStd.ttf'); }
+@font-face { font-family: 'SFCompact'; font-weight: 400; src: url('../fonts/SFCompact.otf'); }
+
+/* Page elements */
+html, body, #app { height: 100%; }
+body {
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: none;
+  -webkit-user-select: none;
+  user-select: none;
+  background-color: #232323;
+
+  font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+
+  height: 100%;
+  width: 100%;
+  color: #fff;
+
+  margin: 0px;
+  padding: 0px;
+}
+
+main {
+  height: calc(100% - 50px);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  line-height: 50px;
+  height: 50px;
+
+  background: #730074;
+  padding: 0 20px;
+  font-size: 1.5em;
+}
+
+/* Specific elements */
+.flip-container { perspective: 1000px; }
+.flip-container.flip .flipper { transform: rotateY(180deg); }
+.flip-container, .front, .back {
+  width: 100%;
+  height: 100%;
+}
+
+.flipper {
+  transition: 0.3s;
+  transform-style: preserve-3d;
+  position: relative;
+  height: 100%;
+}
+
+.front, .back {
+  display: flex;
+  background: #f1f0f0;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.front {
+  z-index: 2;
+  transform: rotateY(0deg);
+  flex-flow: column;
+}
+
+.back { transform: rotateY(180deg); }
+.loader { text-align: center; width: 100%; }
+
+.partners { padding: 5px 12px; display: flex; }
+.partners ul { list-style: none; text-align: center; margin: 0; padding: 3px; width: 80%; }
+.partners > ul > li { margin: 4px 8px; display: inline-block; width: 25%; }
+.partner-main { width: 20%; text-align: center; align-self: center; }
+.partner-main img { padding: 6px; vertical-align: middle; }
+
+.content { flex: 1 1 auto; display: flex; }
+.content .info { width: 80%; padding-right: 1px; background: url('../img/background.png'); background-size: 100% 100%; color: #000; }
+.content .label { width: 20%; background: #FFF59B; color: #E61257; border-left: 1px solid #FFF; }
+.content .label .rotate { transform-origin: center; position: relative; right: 5px; top: 10px; }
+.content .label sup { font-size: 0.3em; padding: 10px 0 0 2px; display: inline-block; vertical-align: top; }
+.content .label h1 { font-size: 3.5em; font-family: SFCompact; font-weight: 400; letter-spacing: -3px; display: inline-block; margin-right: 15px; }
+
+.info .name { margin-bottom: 5px; margin-top: 10px; }
+.info .person.rotate { padding: 8%; position: relative; }
+
+.faction .caption { margin: 0; text-transform: uppercase; font-size: 1.3em; }
+
+.details { line-height: 1.5; margin: 0; font-size: 1.1em; font-family: HelveticaNeue; }
+.details dt { float: left; width: 60px; }
+.details dt:after { content: ":"; }
+.details dt:last-of-type, .details dd:last-of-type { margin-top: 1em; }
+
+.term { text-align: center; font-size: 1.1em; position: absolute; bottom: 10%; right: 13%; }
+.term .current { margin-bottom: 5px; font-weight: 400; font-family: HelveticaNeue-Medium; font-size: 1.7em; }
+.term .duration { margin: 0; font-family: HelveticaNeue; }
+
+.trademark { position: absolute; top: 5%; right: 10%; }
+.trademark h1 { font-size: 2.3em; font-weight: 400; font-family: Rockwell; margin: 0; }
+
+.back > div { height: 100%; }
+.back .advertisement { flex: 1; background: url('../img/bgback.png'); background-size: 100% 100%; }
+.back .stripe { width: 25%; background: #000; }
+.back .banner { width: 7%; background: #FAF29B; }

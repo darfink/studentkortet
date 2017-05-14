@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+
+    <title>Studentkort</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <main>
+        <student-card v-bind="student" v-show="!isLoading"></student-card>
+
+        <div class="loader" v-show="isLoading">
+          <div>Hämtar kortet...</div>
+          <img src="img/loader.gif" alt="Loading" />
+        </div>
+      </main>
+
+      <footer>
+        <div class="left">Stäng</div>
+
+        <div class="right">
+          <a href="#" id="refresh" @click.prevent="onRefresh">
+            <i class="fa fa-repeat fa-rotate-315"></i>
+          </a>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Templates -->
+    <script type="text/x-template" id="template-flip">
+      <div class="flip-container" :class="{ flip: isFlipped }" @click="flip">
+        <div class="flipper">
+          <div class="front">
+            <slot name="front"></slot>
+          </div>
+
+          <div class="back">
+            <slot name="back"></slot>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/x-template" id="template-card">
+      <flip-container>
+        <template slot="front">
+          <header class="partners">
+            <ul>
+              <li><img src="img/partner/claso.png" alt="Clas Ohlson" /></li>
+              <li style="width: 28%"><img src="img/partner/vikingline.png" alt="Viking Line" /></li>
+              <li><img src="img/partner/pressbyran.png" alt="Pressbyrån" style="margin-bottom: -3px" /></li>
+              <li><img src="img/partner/zalando.png" alt="Zalando" /></li>
+              <li><img src="img/partner/apple.png" alt="Apple" style="vertical-align: bottom" /></li>
+            </ul>
+            <div class="partner-main">
+              <img src="img/partner/sj.png" alt="SJ" />
+            </div>
+          </header>
+
+          <section class="content">
+            <div class="info">
+              <div class="person rotate" :style="scale" ref="person">
+                <div class="faction">
+                  <h3 class="caption">{{ nation }}</h3>
+                  <h3 class="caption">{{ union }}</h3>
+                  <h3 class="caption">{{ domain }}</h3>
+                </div>
+
+                <h3 class="name">{{ name }}</h3>
+                <dl class="details">
+                  <dt>Persnr</dt>
+                  <dd>{{ ssn }}</dd>
+                  <dt>Kortnr</dt>
+                  <dd>{{ card }}</dd>
+                  <dt>Valkod</dt>
+                  <dd>{{ pick }}</dd>
+                </dl>
+
+                <div class="trademark">
+                  <h1>Studentlund</h1>
+                </div>
+
+                <div class="term">
+                  <h1 class="current">{{ term.current }}</h1>
+                  <p class="duration">Giltigt: <time>{{ term.start }}</time> - <time>{{ term.end }}</time></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="label">
+              <div class="rotate nowrap">
+                <h1>Studentkortet<sup>®</sup></h1>
+                <img src="img/card.png" alt="Kort" />
+              </div>
+            </div>
+          </section>
+        </template>
+
+        <template slot="back">
+          <div class="advertisement"></div>
+          <div class="stripe"></div>
+          <div class="banner"></div>
+        </template>
+      </flip-container>
+    </script>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/vue-2.3.3.js"></script>
+    <script type="text/javascript" src="js/moment-2.18.1.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+  </body>
+</html>
