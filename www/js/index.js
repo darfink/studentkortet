@@ -64,7 +64,6 @@ Vue.component('student-card', {
 var app = new Vue({
   el: '#app',
   data: {
-    isFlipped: false,
     isLoading: false,
     student: Config,
   },
@@ -74,7 +73,6 @@ var app = new Vue({
         this.isLoading = true;
         setTimeout(() => {
           bus.$emit('refresh');
-          this.isFlipped = false;
           this.isLoading = false;
         }, 1000);
       }
