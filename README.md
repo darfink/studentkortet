@@ -16,7 +16,7 @@ Setup your information in [config.js](./www/js/config.js).
 }
 ```
 
-## Installation
+## Deployment
 
 * Install the cordova CLI
 
