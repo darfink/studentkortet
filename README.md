@@ -33,3 +33,7 @@ Setup your information in [config.js](./www/js/config.js).
   # Android
   cordova run android --device
   ```
+
+## Disclaimer
+
+Use at your own risk.
